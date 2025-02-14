@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Audio Streaming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Live Audio Streaming</h1>
+        <div id="homepage">
+            <button id="startBroadcast">Start Broadcast</button>
+            <button id="listenBroadcast">Listen to Broadcasts</button>
+        </div>
+
+        <!-- Broadcast Section -->
+        <div id="broadcastSection" class="hidden">
+            <h2>Broadcast Live Audio</h2>
+            <button id="startButton">Start</button>
+            <button id="stopButton" disabled>Stop</button>
+            <div id="audioVisualization"></div>
+            <label for="gainControl">Microphone Gain:</label>
+            <input type="range" id="gainControl" min="0" max="1" step="0.1" value="0.5">
+            <p id="shareLink"></p>
+        </div>
+
+        <!-- Listener Section -->
+        <div id="listenerSection" class="hidden">
+            <h2>Listening to Broadcast</h2>
+            <audio id="audioPlayer" controls></audio>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
